@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Zeeshan Malik — Portfolio</title>
+  <meta name="description" content="Zeeshan Malik — modern, fast, responsive developer portfolio." />
+  <meta property="og:title" content="Zeeshan Malik — Portfolio" />
+  <meta property="og:description" content="Modern, fast, responsive developer portfolio." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#6D28D9" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script>
+    (function(){
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved) document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar" id="top">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand__mark" aria-hidden="true">ZM</span>
+        <span class="brand__text">Zeeshan Malik</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#skills">Skills</a>
+        <a class="nav__link" href="#projects">Projects</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <button class="iconbtn" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span class="iconbtn__icon" aria-hidden="true">◐</span>
+        </button>
+        <a class="btn btn--primary" id="ctaResume" href="#contact">Let’s talk</a>
+        <button class="iconbtn iconbtn--menu" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile" id="mobileNav" hidden>
+      <div class="container mobile__inner">
+        <a class="mobile__link" href="#about">About</a>
+        <a class="mobile__link" href="#skills">Skills</a>
+        <a class="mobile__link" href="#projects">Projects</a>
+        <a class="mobile__link" href="#contact">Contact</a>
+        <div class="mobile__row">
+          <button class="btn btn--ghost" id="themeToggleMobile" type="button">Toggle theme</button>
+          <a class="btn btn--primary" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="kicker" id="heroKicker">Software Developer</p>
+          <h1 class="hero__title">
+            I build <span class="gradient">clean</span> interfaces and <span class="gradient">reliable</span> web apps.
+          </h1>
+          <p class="hero__subtitle" id="heroSubtitle">
+            A modern portfolio focused on performance, accessibility, and crisp design.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" id="heroPrimary" href="#projects">View projects</a>
+            <a class="btn btn--ghost" id="heroSecondary" href="#contact">Contact</a>
+          </div>
+
+          <div class="hero__stats" id="stats"></div>
+        </div>
+
+        <div class="hero__card" aria-label="Profile card">
+          <div class="card">
+            <div class="card__top">
+              <div class="avatar" aria-hidden="true">
+                <span class="avatar__ring"></span>
+                <span class="avatar__text">ZM</span>
+              </div>
+              <div>
+                <div class="card__name" id="profileName">Zeeshan Malik</div>
+                <div class="card__role" id="profileRole">Software Developer</div>
+              </div>
+            </div>
+            <p class="card__bio" id="profileBio">
+              I’m a developer who loves building fast, accessible, and beautiful experiences.
+            </p>
+            <div class="card__links" id="socialLinks"></div>
+
+            <div class="card__pillrow" id="availability"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__glow" aria-hidden="true"></div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">About</h2>
+          <p class="section__desc" id="aboutText"></p>
+        </div>
+
+        <div class="grid grid--3" id="highlights"></div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Skills</h2>
+          <p class="section__desc">A mix of front-end craft, engineering fundamentals, and shipping mindset.</p>
+        </div>
+        <div class="grid grid--4" id="skillsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head section__head--row">
+          <div>
+            <h2 class="section__title">Projects</h2>
+            <p class="section__desc">A few things I’ve built. Replace placeholders with your real work.</p>
+          </div>
+          <div class="section__actions">
+            <input class="input" id="projectSearch" type="search" placeholder="Search projects…" aria-label="Search projects" />
+            <select class="select" id="projectFilter" aria-label="Filter by tag"></select>
+          </div>
+        </div>
+
+        <div class="grid grid--3" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact">
+          <div class="contact__copy">
+            <h2 class="section__title">Let’s build something</h2>
+            <p class="section__desc" id="contactText"></p>
+
+            <div class="contact__cards" id="contactCards"></div>
+          </div>
+
+          <form class="form" id="contactForm">
+            <label class="field">
+              <span class="field__label">Name</span>
+              <input class="input" name="name" autocomplete="name" required />
+            </label>
+            <label class="field">
+              <span class="field__label">Email</span>
+              <input class="input" name="email" type="email" autocomplete="email" required />
+            </label>
+            <label class="field">
+              <span class="field__label">Message</span>
+              <textarea class="textarea" name="message" rows="5" required></textarea>
+            </label>
+            <button class="btn btn--primary" type="submit">Send message</button>
+            <p class="form__hint">This form opens your email app (mailto) by default—no backend needed.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__left">
+          <div class="footer__brand">Zeeshan Malik</div>
+          <div class="footer__meta" id="footerMeta"></div>
+        </div>
+        <div class="footer__right">
+          <a class="footer__link" href="#top">Back to top</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
