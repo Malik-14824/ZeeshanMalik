@@ -1,0 +1,678 @@
+/* ╔══════════════════════════════════════════════════════════════╗
+    ║     HEADER, FOOTER, HERO & ABOUT — RESPONSIVE STYLES        ║
+    ║     Covers: mobile menu, hero, about, all breakpoints,       ║
+    ║     touch targets, dark/light themes.                        ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE MENU — PANEL
+   ══════════════════════════════════════════════════════════════ */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+/* Keep media and decorative elements from creating horizontal overflow. */
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+}
+
+.mobile-menu {
+    overflow: hidden;
+    max-height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+        max-height 360ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity    260ms ease,
+        visibility 0ms linear 360ms;
+    background: rgba(12, 24, 28, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(6, 204, 249, 0.12);
+}
+
+html:not(.dark) .mobile-menu {
+    background: rgba(245, 248, 248, 0.98);
+    border-bottom-color: rgba(6, 204, 249, 0.15);
+}
+
+.mobile-menu.is-open {
+    max-height: 560px;
+    visibility: visible;
+    opacity: 1;
+    transition:
+        max-height 400ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity    280ms ease,
+        visibility 0ms linear 0ms;
+}
+
+/* ── Mobile Menu Inner Wrapper ─────────────────────────────── */
+.mobile-menu-inner {
+    padding: 1.25rem 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* ── Mobile Nav Links ──────────────────────────────────────── */
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.72rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    color: #94a3b8;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition:
+        background  220ms ease,
+        color       220ms ease,
+        border-color 220ms ease,
+        transform   220ms ease;
+}
+
+.mobile-nav-link:hover {
+    background: rgba(6, 204, 249, 0.09);
+    color: #06ccf9;
+    transform: translateX(4px);
+}
+
+.mobile-nav-link.is-active {
+    background: rgba(6, 204, 249, 0.13);
+    color: #06ccf9;
+    border-color: rgba(6, 204, 249, 0.25);
+}
+
+/* Hire Me link gets a highlighted pill style */
+.mobile-nav-link-hire {
+    margin-top: 0.4rem;
+    background: linear-gradient(135deg, rgba(6, 204, 249, 0.12), rgba(103, 232, 249, 0.06));
+    border-color: rgba(6, 204, 249, 0.28);
+    color: #06ccf9;
+}
+
+.mobile-nav-link-hire:hover {
+    background: linear-gradient(135deg, rgba(6, 204, 249, 0.22), rgba(103, 232, 249, 0.12));
+    border-color: rgba(6, 204, 249, 0.5);
+    transform: translateX(4px);
+}
+
+.mobile-nav-link-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* Light-mode adjustments for mobile nav links */
+html:not(.dark) .mobile-nav-link {
+    color: #475569;
+}
+
+html:not(.dark) .mobile-nav-link:hover {
+    background: rgba(6, 204, 249, 0.08);
+    color: #06ccf9;
+}
+
+html:not(.dark) .mobile-nav-link.is-active {
+    background: rgba(6, 204, 249, 0.1);
+    color: #0891b2;
+    border-color: rgba(6, 204, 249, 0.2);
+}
+
+html:not(.dark) .mobile-nav-link-hire {
+    background: linear-gradient(135deg, rgba(6, 204, 249, 0.1), rgba(103, 232, 249, 0.05));
+    border-color: rgba(6, 204, 249, 0.25);
+    color: #0891b2;
+}
+
+/* ── Mobile Social Row ─────────────────────────────────────── */
+.mobile-social-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.625rem;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+html:not(.dark) .mobile-social-row {
+    border-top-color: rgba(15, 31, 35, 0.09);
+}
+
+.mobile-social-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #475569;
+    flex: 0 0 auto;
+}
+
+.mobile-social-links {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.mobile-social-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    flex: 0 0 2.25rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition:
+        color        220ms ease,
+        border-color 220ms ease,
+        background   220ms ease,
+        transform    220ms ease;
+}
+
+.mobile-social-icon svg {
+    width: 1rem;
+    height: 1rem;
+    display: block;
+    fill: currentColor;
+}
+
+.mobile-social-icon:hover {
+    color: #06ccf9;
+    border-color: rgba(6, 204, 249, 0.45);
+    background: rgba(6, 204, 249, 0.08);
+    transform: translateY(-2px);
+}
+
+html:not(.dark) .mobile-social-icon {
+    background: rgba(15, 31, 35, 0.04);
+    border-color: rgba(15, 31, 35, 0.1);
+    color: #475569;
+}
+
+html:not(.dark) .mobile-social-icon:hover {
+    background: rgba(6, 204, 249, 0.08);
+    border-color: rgba(6, 204, 249, 0.35);
+    color: #0891b2;
+}
+
+/* ── Overlay ───────────────────────────────────────────────── */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 48;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.mobile-menu-overlay.is-open {
+    display: block;
+    opacity: 1;
+}
+
+/* ── Hamburger button active state ─────────────────────────── */
+#mobile-menu-btn.is-open {
+    border-color: rgba(6, 204, 249, 0.5) !important;
+    color: #06ccf9 !important;
+    background: rgba(6, 204, 249, 0.08) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HEADER — RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════════ */
+
+/* Force mobile menu invisible on desktop — safety net */
+@media (min-width: 768px) {
+    .mobile-menu,
+    .mobile-menu-overlay {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        max-height: 0 !important;
+        pointer-events: none !important;
+    }
+}
+
+/* Extra-small phones (< 360px) */
+@media (max-width: 359px) {
+    .header-modern-divider .logo-script {
+        font-size: 1.65rem !important;
+    }
+
+    #mobile-menu-btn {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .mobile-menu-inner {
+        padding: 1rem 0.875rem 1.25rem;
+    }
+
+    .mobile-nav-link {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.875rem;
+        gap: 0.5rem;
+    }
+}
+
+/* Small phones (360px – 479px) */
+@media (min-width: 360px) and (max-width: 479px) {
+    .mobile-menu-inner {
+        padding: 1.1rem 1rem 1.35rem;
+    }
+}
+
+/* Small devices (< 640px) */
+@media (max-width: 639px) {
+    /* Slightly tighten the header nav bar on small phones */
+    .header-modern-divider .max-w-7xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .mobile-nav-link {
+        padding: 0.68rem 0.9rem;
+        font-size: 0.9rem;
+    }
+
+    /* Guard against accidental viewport overflow on mobile. */
+    section,
+    footer,
+    nav {
+        overflow-x: clip;
+    }
+}
+
+/* Medium-small (640px – 767px) */
+@media (min-width: 640px) and (max-width: 767px) {
+    .mobile-menu-inner {
+        padding: 1.25rem 1.5rem 1.5rem;
+    }
+
+    .mobile-nav-link {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet landscape / small laptop nav polish (768px – 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Slightly shrink nav link padding to prevent overflow */
+    .nav-link {
+        padding: 0.42rem 0.65rem;
+        gap: 0.32rem;
+        font-size: 0.8125rem;
+    }
+
+    .nav-link-icon {
+        font-size: 0.875rem;
+    }
+}
+
+/* Large desktop (1280px+) — give the nav a bit more breathing room */
+@media (min-width: 1280px) {
+    .nav-link {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER — RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════════ */
+
+/* Mobile footer: center-align all content (< 768px) */
+@media (max-width: 767px) {
+    footer .grid {
+        text-align: center;
+    }
+
+    /* Center the descriptive paragraph */
+    footer .max-w-sm {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Center the quick-links flex row */
+    footer .flex.flex-wrap.gap-4 {
+        justify-content: center;
+    }
+
+    /* Center social icons row */
+    footer .flex.items-center.gap-3 {
+        justify-content: center;
+    }
+
+    /* Center the bottom bar text */
+    footer .mt-10.pt-6 > .flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.25rem;
+    }
+}
+
+/* Very small phones — tighten footer vertical spacing */
+@media (max-width: 479px) {
+    footer {
+        padding-top: 2.75rem;
+        padding-bottom: 2.75rem;
+    }
+
+    footer .grid {
+        gap: 1.75rem;
+    }
+
+    footer .mt-10 {
+        margin-top: 1.5rem;
+    }
+
+    /* Logo size in footer */
+    footer .logo-script {
+        font-size: 1.75rem;
+    }
+
+    /* Social icon size adjustment */
+    footer .w-10.h-10 {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+/* Small-medium (480px – 639px) */
+@media (min-width: 480px) and (max-width: 639px) {
+    footer .grid {
+        gap: 2rem;
+    }
+
+    footer .logo-script {
+        font-size: 2rem;
+    }
+}
+
+/* Tablet (768px – 1023px) — 3-col grid, ensure it doesn't overflow */
+@media (min-width: 768px) and (max-width: 1023px) {
+    footer .gap-10 {
+        gap: 1.5rem;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HEADER — iOS SAFARI / ALL-BROWSER STICKY FIX
+   ══════════════════════════════════════════════════════════════ */
+
+nav.header-modern-divider {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HERO SECTION — RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #home { min-height: 80vh; }
+    #home > .max-w-7xl { padding-top: 4rem; padding-bottom: 4rem; gap: 2.5rem; }
+}
+
+@media (max-width: 767px) {
+    #home { min-height: 100vh; min-height: 100svh; align-items: flex-start; }
+    #home > .max-w-7xl { padding-top: 2.5rem; padding-bottom: 3rem; gap: 2.25rem; text-align: center; }
+    #home .space-y-5 > .inline-flex { margin: 0 auto; }
+    #home p.max-w-2xl { margin-left: auto; margin-right: auto; }
+    #home .flex.flex-wrap.gap-4 { justify-content: center; }
+    #home .flex.flex-wrap.gap-3 { justify-content: center; }
+    #home .glass.p-3 {
+        width: clamp(11.5rem, 65vw, 15.5rem) !important;
+        height: auto !important;
+        aspect-ratio: 9 / 11;
+    }
+}
+
+@media (max-width: 479px) {
+    #home > .max-w-7xl { padding-top: 1.75rem; padding-bottom: 2.5rem; gap: 1.75rem; }
+    #home h1 { line-height: 1.15; }
+    #home .glass.p-3 { width: clamp(10rem, 70vw, 13rem) !important; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ABOUT SECTION — RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #about { padding-top: 5rem; padding-bottom: 5rem; }
+    #about > .max-w-7xl > .flex { gap: 2.5rem; }
+    #about .h-48 { height: 10rem; }
+    #about .h-64 { height: 13rem; }
+}
+
+@media (max-width: 767px) {
+    #about { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    #about > .max-w-7xl > .flex { gap: 2rem; }
+    #about .grid.grid-cols-2 { max-width: 28rem; margin-left: auto; margin-right: auto; }
+    #about .h-48 { height: 9rem !important; }
+    #about .h-64 { height: 11.5rem !important; }
+    #about .mt-8 { margin-top: 1.5rem; }
+}
+
+@media (max-width: 479px) {
+    #about { padding-top: 3rem; padding-bottom: 3rem; }
+    #about .flex-1.space-y-6 { text-align: center; }
+    #about h2.text-3xl { justify-content: center; }
+    #about .pt-4 { display: flex; justify-content: center; }
+    #about .h-48 { height: 7rem !important; }
+    #about .h-64 { height: 9rem !important; }
+    #about .grid.grid-cols-2 { gap: 0.5rem; max-width: 22rem; }
+    #about .mt-8 { margin-top: 1rem; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SKILLS SECTION — RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════════ */
+
+/* Tablet (768px – 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #skills {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+    }
+    #skills .glass.p-8 {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+    #skills {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+    #skills .text-center.mb-16 {
+        margin-bottom: 2rem;
+    }
+    #skills h2.text-4xl {
+        font-size: 1.875rem;
+    }
+    #skills .glass.p-8 {
+        padding: 1.25rem;
+    }
+    #skills .grid {
+        gap: 1rem;
+    }
+}
+
+/* Extra-small (< 480px) */
+@media (max-width: 479px) {
+    #skills {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    #skills h2.text-4xl {
+        font-size: 1.625rem;
+    }
+    #skills .text-center.mb-16 {
+        margin-bottom: 1.5rem;
+    }
+    #skills .glass.p-8 {
+        padding: 1rem;
+    }
+    /* Icon box slightly smaller */
+    #skills .w-12.h-12 {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SERVICES SECTION — RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════════ */
+
+/* Tablet (768px – 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #services {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+    }
+    #services .mb-16 {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+    #services {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+    #services .mb-16 {
+        margin-bottom: 1.75rem;
+    }
+    #services h2.text-4xl {
+        font-size: 1.875rem;
+    }
+    /* Keep the marquee clipped inside the section */
+    #services .services-marquee {
+        overflow: hidden;
+    }
+}
+
+/* Extra-small (< 480px) */
+@media (max-width: 479px) {
+    #services {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    #services h2.text-4xl {
+        font-size: 1.625rem;
+    }
+    #services .mb-16 {
+        margin-bottom: 1.25rem;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PROJECTS SECTION — RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════════ */
+
+/* Tablet (768px – 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #projects {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+    }
+    #projects .text-center.mb-16 {
+        margin-bottom: 2.5rem;
+    }
+    #projects .grid {
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+    #projects {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+    #projects .text-center.mb-16 {
+        margin-bottom: 2rem;
+    }
+    #projects h2.text-4xl {
+        font-size: 1.875rem;
+    }
+    /* Filter buttons — horizontal scroll strip, no wrapping */
+    #project-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    #project-filters::-webkit-scrollbar {
+        display: none;
+    }
+    #project-filters .filter-btn {
+        flex-shrink: 0;
+    }
+    #projects .grid {
+        gap: 1.25rem;
+    }
+    /* Card image scroll height */
+    #projects .card-img-scroll {
+        height: 185px;
+    }
+}
+
+/* Extra-small (< 480px) */
+@media (max-width: 479px) {
+    #projects {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    #projects h2.text-4xl {
+        font-size: 1.625rem;
+    }
+    #projects .text-center.mb-16 {
+        margin-bottom: 1.5rem;
+    }
+    #projects .grid {
+        gap: 1rem;
+    }
+    #projects .card-img-scroll {
+        height: 160px;
+    }
+    /* Card body padding */
+    #projects .p-6 {
+        padding: 0.875rem;
+    }
+}
